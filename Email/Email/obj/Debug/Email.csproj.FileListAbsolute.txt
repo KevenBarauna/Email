@@ -1,0 +1,9 @@
+C:\Users\keven.barauna\Documents\_Projetos\_Pessoal\26 - EnviarEmail\Email\Email\bin\Debug\Email.exe.config
+C:\Users\keven.barauna\Documents\_Projetos\_Pessoal\26 - EnviarEmail\Email\Email\bin\Debug\Email.exe
+C:\Users\keven.barauna\Documents\_Projetos\_Pessoal\26 - EnviarEmail\Email\Email\bin\Debug\Email.pdb
+C:\Users\keven.barauna\Documents\_Projetos\_Pessoal\26 - EnviarEmail\Email\Email\obj\Debug\Email.csprojAssemblyReference.cache
+C:\Users\keven.barauna\Documents\_Projetos\_Pessoal\26 - EnviarEmail\Email\Email\obj\Debug\Email.Form1.resources
+C:\Users\keven.barauna\Documents\_Projetos\_Pessoal\26 - EnviarEmail\Email\Email\obj\Debug\Email.Properties.Resources.resources
+C:\Users\keven.barauna\Documents\_Projetos\_Pessoal\26 - EnviarEmail\Email\Email\obj\Debug\Email.csproj.GenerateResource.cache
+C:\Users\keven.barauna\Documents\_Projetos\_Pessoal\26 - EnviarEmail\Email\Email\obj\Debug\Email.exe
+C:\Users\keven.barauna\Documents\_Projetos\_Pessoal\26 - EnviarEmail\Email\Email\obj\Debug\Email.pdb
