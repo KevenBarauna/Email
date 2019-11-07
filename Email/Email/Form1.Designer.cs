@@ -50,6 +50,7 @@
             this.BtnHtml.TabIndex = 1;
             this.BtnHtml.Text = "Enviar HTML";
             this.BtnHtml.UseVisualStyleBackColor = true;
+            this.BtnHtml.Click += new System.EventHandler(this.BtnHtml_Click);
             // 
             // Form1
             // 

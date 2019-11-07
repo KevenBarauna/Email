@@ -51,5 +51,46 @@ namespace Email
             MessageBox.Show("OK");
 
         }
+
+        private void BtnHtml_Click(object sender, EventArgs e)
+        {
+            //Enviar E-mail pelo C#
+            SmtpClient cliente = new SmtpClient();
+            NetworkCredential credenciais = new NetworkCredential();
+
+            //CONFIGURAÇÕES DO CLIENTE
+            cliente.Host = "smtp.gmail.com";
+            cliente.Port = 587;
+            cliente.EnableSsl = true;
+            cliente.DeliveryMethod = SmtpDeliveryMethod.Network;
+            cliente.UseDefaultCredentials = false;
+
+            //DEFINIT ACESSO E-MAIL
+            credenciais.UserName = "baianofotografia.keven";
+            credenciais.Password = "12345678kel";
+
+            //CREDENCIAIS NO CLIENTE
+            cliente.Credentials = credenciais;
+
+            //MENSAGEM
+            MailMessage mensagem = new MailMessage();
+            mensagem.From = new MailAddress("baianofotografia.keven@gmail.com");
+            mensagem.Subject = "Mensagem em HTML";
+            mensagem.IsBodyHtml = true;
+
+            String texto;
+            Template template = new Template();
+            texto = template.GetMensagem();
+
+            mensagem.Body = texto;
+
+            //mensagem.Body = "<strong>Essa</strong> mensagem <br><br>é uma mensagem de teste!";
+            mensagem.To.Add("keven.barauna@solutis.com.br");
+
+            //ENVIAR
+            cliente.Send(mensagem);
+            MessageBox.Show("OK");
+
+        }
     }
 }
