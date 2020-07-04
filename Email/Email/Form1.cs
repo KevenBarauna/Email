@@ -18,9 +18,10 @@ namespace Email
         {
             InitializeComponent();
         }
-
-        private void BtnFrase_Click(object sender, EventArgs e)
+     
+    private void BtnFrase_Click(object sender, EventArgs e)
         {
+            try {
             //Enviar E-mail pelo C#
             SmtpClient cliente = new SmtpClient();
             NetworkCredential credenciais = new NetworkCredential();
@@ -33,64 +34,120 @@ namespace Email
             cliente.UseDefaultCredentials = false;
 
             //DEFINIT ACESSO E-MAIL
-            credenciais.UserName = "baianofotografia.keven";
-            credenciais.Password = "12345678kel";
+            credenciais.UserName = "";//AQUI VOCÊ COLOCA SEU E-MAIL
+            credenciais.Password = "";//AQUI VOCÊ COLOCA SUA SENHA
 
             //CREDENCIAIS NO CLIENTE
             cliente.Credentials = credenciais;
 
             //MENSAGEM
             MailMessage mensagem = new MailMessage();
-            mensagem.From = new MailAddress("baianofotografia.keven@gmail.com");
-            mensagem.Subject = "Títullo da mensagem";
-            mensagem.Body = "Essa é a mensagem que estou enviando";
-            mensagem.To.Add("keven.barauna@solutis.com.br");
-
-            //ENVIAR
-            cliente.Send(mensagem);
-            MessageBox.Show("OK");
-
-        }
-
-        private void BtnHtml_Click(object sender, EventArgs e)
-        {
-            //Enviar E-mail pelo C#
-            SmtpClient cliente = new SmtpClient();
-            NetworkCredential credenciais = new NetworkCredential();
-
-            //CONFIGURAÇÕES DO CLIENTE
-            cliente.Host = "smtp.gmail.com";
-            cliente.Port = 587;
-            cliente.EnableSsl = true;
-            cliente.DeliveryMethod = SmtpDeliveryMethod.Network;
-            cliente.UseDefaultCredentials = false;
-
-            //DEFINIT ACESSO E-MAIL
-            credenciais.UserName = "baianofotografia.keven";
-            credenciais.Password = "12345678kel";
-
-            //CREDENCIAIS NO CLIENTE
-            cliente.Credentials = credenciais;
-
-            //MENSAGEM
-            MailMessage mensagem = new MailMessage();
-            mensagem.From = new MailAddress("baianofotografia.keven@gmail.com");
-            mensagem.Subject = "Mensagem em HTML";
-            mensagem.IsBodyHtml = true;
+            mensagem.From = new MailAddress("");//SEU E-MAIL AQUI
+            mensagem.Subject = "Meu teste";
 
             String texto;
             Template template = new Template();
             texto = template.GetMensagem();
 
             mensagem.Body = texto;
-
-            //mensagem.Body = "<strong>Essa</strong> mensagem <br><br>é uma mensagem de teste!";
-            mensagem.To.Add("keven.barauna@solutis.com.br");
+            mensagem.To.Add("");//E-MAIL DO DESTINATARIO
 
             //ENVIAR
             cliente.Send(mensagem);
-            MessageBox.Show("OK");
+            MessageBox.Show("Sucesso! verifique sua caixa de entrada");
+            }
+            catch (Exception erro) {
+            MessageBox.Show("Erro! :/ " + erro.Message);
+            }
 
+        }
+
+        private void BtnHtml_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Enviar E-mail pelo C#
+                SmtpClient cliente = new SmtpClient();
+                NetworkCredential credenciais = new NetworkCredential();
+
+                //CONFIGURAÇÕES DO CLIENTE
+                cliente.Host = "smtp.gmail.com";
+                cliente.Port = 587;
+                cliente.EnableSsl = true;
+                cliente.DeliveryMethod = SmtpDeliveryMethod.Network;
+                cliente.UseDefaultCredentials = false;
+
+                //DEFINIT ACESSO E-MAIL
+                credenciais.UserName = "";//AQUI VOCÊ COLOCA SEU E-MAIL
+                credenciais.Password = "";//AQUI VOCÊ COLOCA SUA SENHA
+
+                //CREDENCIAIS NO CLIENTE
+                cliente.Credentials = credenciais;
+
+                //MENSAGEM
+                MailMessage mensagem = new MailMessage();
+                mensagem.From = new MailAddress("");//SEU E-MAIL AQUI
+                mensagem.Subject = "Meu teste";
+
+                String texto;
+                Template template = new Template();
+                texto = template.GetMensagemHtml();
+
+                mensagem.Body = texto;
+                mensagem.To.Add("");//E-MAIL DO DESTINATARIO
+
+                //ENVIAR
+                cliente.Send(mensagem);
+                MessageBox.Show("Sucesso! verifique sua caixa de entrada");
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro! :/ " + erro.Message);
+            }
+
+        }
+
+        private void btnTexto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                //Enviar E-mail pelo C#
+                SmtpClient cliente = new SmtpClient();
+                NetworkCredential credenciais = new NetworkCredential();
+
+                //CONFIGURAÇÕES DO CLIENTE
+                cliente.Host = "smtp.gmail.com";
+                cliente.Port = 587;
+                cliente.EnableSsl = true;
+                cliente.DeliveryMethod = SmtpDeliveryMethod.Network;
+                cliente.UseDefaultCredentials = false;
+
+                //DEFINIT ACESSO E-MAIL
+                credenciais.UserName = txtEmailPessoal.Text;//AQUI VOCÊ COLOCA SEU E-MAIL
+                credenciais.Password = txtConfSenha.Text;//AQUI VOCÊ COLOCA SUA SENHA
+
+                //CREDENCIAIS NO CLIENTE
+                cliente.Credentials = credenciais;
+
+                //MENSAGEM
+                MailMessage mensagem = new MailMessage();
+                mensagem.From = new MailAddress(txtEmailPessoal.Text);//SEU E-MAIL AQUI
+                mensagem.Subject = txtTitulo.Text;
+
+                String texto;
+                Template template = new Template();
+                texto = template.GetMensagemHtml();
+                mensagem.Body = txtMensagem.Text;//MENSAGEM
+                mensagem.To.Add(txtDestinatatio.Text);//E-MAIL DO DESTINATARIO
+
+                //ENVIAR
+                cliente.Send(mensagem);
+                MessageBox.Show("Sucesso! verifique sua caixa de entrada");
+            }
+            catch (Exception erro)
+            {
+                MessageBox.Show("Erro! :/ " + erro.Message);
+            }
         }
     }
 }

@@ -10,16 +10,16 @@ namespace Email
     {
        
 
-        public String GetMensagem()
+        public String GetMensagemHtml()
         {
-            String mensagem = "<strong>Atenção:</strong> <br><br> essa é uma mensagem de teste com Objeto";
+            String mensagem = "<strong>Atenção:</strong> <br><br> essa é uma mensagem de teste com HTML";
 
             return mensagem;
         }
 
-        public String GetSebrae()
+        public String GetMensagem()
         {
-            String mensagem = @"";
+            String mensagem = @"Olá, essa é uma mensagem enviada pelo C# do projeto de estudo de Keven Baraúna. Vlw ;)";
 
             return mensagem;
         }
